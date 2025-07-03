@@ -1,16 +1,48 @@
-## Hi there 👋
+# 👨‍💻 Hello, I'm Goatja
 
-<!--
-**Goatja/Goatja** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+🎓 **Technician in Software Development**  
+🛠️ Passionate about building tech that solves real problems  
+📍 Based in El Salvador | 📈 Always learning and improving
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🧩 About Me
+
+I’m a developer who enjoys turning ideas into clean, functional code.  
+Currently focused on sharpening my skills in both frontend and backend development.
+
+- 💡 Curiosity-driven learner  
+- 🎨 Building UIs with React and Vue   
+- 🌱 Always up for new challenges
+
+---
+
+### 🛠️ Tech Stack
+
+`Java` • `SQL` • `JavaScript` • `React` • `PHP` • `` • `Git` • `HTML/CSS`
+
+---
+
+### 🚀 Projects
+
+| Project                   | Description                                           |
+|---------------------------|-------------------------------------------------------|
+| 📊 HR Frontend            | React-based app consuming a custom API               |
+| 🔐 Java API REST          | API built with Spring Boot and JPA                   |
+
+
+---
+
+### 📫 Connect with Me
+
+- 📧 Email: [gitalkeys49@gmail.com](jorge.arana528@gmail.com)
+
+- 🌐 Portfolio: *Coming soon...*
+
+---
+
+> “Build, break, fix, repeat — that’s how we grow as developers.”
+
+---
+
+💬 _Feel free to check out my repositories or reach out if you want to collaborate!_
