@@ -35,7 +35,7 @@ Currently focused on sharpening my skills in both frontend and backend developme
 
 ### 📫 Connect with Me
 
-- 📧 Email: [gitalkeys49@gmail.com](jorge.arana528@gmail.com)
+- 📧 Email: [jorge.arana528gmail.com](jorge.arana528@gmail.com)
 
 - 🌐 Portfolio: *Coming soon...*
 
