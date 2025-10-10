@@ -1,67 +1,73 @@
-# Mi Portafolio Personal
+<div align="center">
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3NuemF2anhpYXo5ejM4ajFzanFqOXlnYXdndDdnYmw2eTBjYmVjOSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Zd8PWjBCHCIAo/giphy.gif" width="120" style="border-radius:50%">
+  <h1>¡Hola, soy Goatja! 👋</h1>
+  <h3>Desarrollador Fullstack | Apasionado por la tecnología 🚀</h3>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=440&lines=Bienvenido+a+mi+repositorio+personal!" alt="Typing SVG" />
+</div>
 
-Este es el repositorio de mi portafolio personal, creado con React y Vite, y estilizado con Flowbite y Tailwind CSS.
+---
 
-![Portfolio Screenshot](https://via.placeholder.com/800x400.png?text=Captura+de+Pantalla+del+Portafolio)
+## 🧑‍💻 Sobre mí
 
-## 🚀 Descripción
+Soy desarrollador profesional con experiencia en frontend y backend.<br>
+Me encanta crear soluciones eficientes, escalables y creativas.<br>
+Apasionado por el aprendizaje continuo, las buenas prácticas y la mejora constante.<br>
+Actualmente enfocado en proyectos con React, PHP, TailwindCSS y arquitectura MVC.
 
-Este proyecto es una aplicación de una sola página (SPA) que muestra mi perfil profesional, proyectos, habilidades y formas de contacto. El diseño es moderno, responsivo y cuenta con animaciones para una experiencia de usuario más agradable.
+---
 
-## ✨ Características
+## 🛠️ Tecnologías y herramientas
 
-- **Diseño Responsivo:** Se adapta a cualquier tamaño de pantalla, desde móviles hasta computadoras de escritorio.
-- **Navegación Fluida:** Desplazamiento suave entre las secciones.
-- **Componentes Reutilizables:** Construido con componentes de React para una fácil mantenibilidad.
-- **Estilizado con Flowbite:** Utiliza el ecosistema de componentes de Flowbite y las utilidades de Tailwind CSS.
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" title="HTML" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" title="CSS" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" width="40" title="Bootstrap" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" title="JavaScript" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" title="TypeScript" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="40" title="React" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="40" title="PHP" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" title="Java" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" width="40" title="Android" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="40" title="Node.js" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" title="Python" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" title="Docker" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" title="Git" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" title="SQL" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" title="Linux" />
+</p>
 
-## 🛠️ Tecnologías Utilizadas
+---
 
-- **Frontend:**
-  - ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-  - ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-  - ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-  - ![Flowbite](https://img.shields.io/badge/Flowbite-1A56DB?style=for-the-badge&logo=flowbite&logoColor=white)
-- **Iconos:**
-  - ![React Icons](https://img.shields.io/badge/React_Icons-E91E63?style=for-the-badge&logo=react&logoColor=white)
+## 🚀 Proyectos destacados
 
-## ⚙️ Cómo Empezar
+- **📚 BiblioTech** — Sistema de gestión de biblioteca con PHP orientado a objetos, sesiones serializadas y arquitectura MVC.
+- **🌐 Portfolio animado** — Sitio personal construido con React, Vite, TailwindCSS y animaciones modernas.
+- **🔧 CRUD dinámico** — Aplicación con formularios interactivos, edición en tiempo real y validación robusta.
 
-Sigue estos pasos para levantar el proyecto en tu entorno local.
+---
 
-### Prerrequisitos
+## 📈 Estadísticas
 
-Asegúrate de tener Node.js y npm instalados en tu máquina.
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Goatja&style=flat-square&color=blue" alt="Profile views" />
+  <img src="https://img.shields.io/github/followers/Goatja?style=flat-square&color=blue" alt="GitHub followers" />
+</p>
 
-```bash
-node -v
-npm -v
-```
+---
 
-### Instalación
+## 🌐 Contacto y redes sociales
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/Goatja/Goatja.git
-   ```
-2. Navega al directorio del proyecto:
-   ```bash
-   cd Goatja
-   ```
-3. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-4. Inicia el servidor de desarrollo:
-   ```bash
-   npm run dev
-   ```
-5. Abre tu navegador en `http://localhost:5173` (o el puerto que te indique la terminal).
-
-## 🌐 Demo en Vivo
-
-Puedes ver una demostración en vivo del portafolio aquí: [Enlace a la demo] (se reemplazará con el enlace real).
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT.
+<p align="center">
+  <a href="mailto:tuemail@gmail.com">
+    <img src="https://img.shields.io/badge/email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://linkedin.com/in/tuusuario">
+    <img src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://twitter.com/tuusuario">
+    <img src="https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" />
+  </a>
+  <a href="https://github.com/Goatja">
+    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
