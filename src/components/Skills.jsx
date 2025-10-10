@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { FaHtml5, FaCss3Alt, FaBootstrap, FaReact, FaJsSquare, FaPhp, FaJava, FaAndroid, FaDatabase, FaNetworkWired, FaServer, FaLinux } from 'react-icons/fa';
-import { SiCplusplus, SiCsharp, SiMongodb } from 'react-icons/si';
+//import { SiCplusplus, SiCsharp, SiMongodb } from 'react-icons/si';
 
 const Skills = () => {
     const skills = [
@@ -12,13 +12,13 @@ const Skills = () => {
         { name: 'PHP', icon: <FaPhp className="text-purple-400" /> },
         { name: 'Java', icon: <FaJava className="text-red-500" /> },
         { name: 'Android', icon: <FaAndroid className="text-green-500" /> },
-        { name: 'C++', icon: <SiCplusplus className="text-blue-600" /> },
-        { name: 'C#', icon: <SiCsharp className="text-purple-600" /> },
+      /*   { name: 'C++', icon: <SiCplusplus className="text-blue-600" /> },
+        { name: 'C#', icon: <SiCsharp className="text-purple-600" /> }, */
         { name: 'SQL', icon: <FaDatabase className="text-blue-400" /> },
         { name: 'Redes', icon: <FaNetworkWired className="text-gray-500" /> },
         { name: 'Servidores', icon: <FaServer className="text-gray-500" /> },
-        { name: 'Linux', icon: <FaLinux className="text-black" /> },
-        { name: 'MongoDB', icon: <SiMongodb className="text-green-400" /> },
+        { name: 'Linux', icon: <FaLinux className="text-black" /> }/* ,
+        { name: 'MongoDB', icon: <SiMongodb className="text-green-400" /> }, */
     ];
 
     return (
