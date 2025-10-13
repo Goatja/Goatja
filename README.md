@@ -2,8 +2,7 @@
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3NuemF2anhpYXo5ejM4ajFzanFqOXlnYXdndDdnYmw2eTBjYmVjOSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Zd8PWjBCHCIAo/giphy.gif" width="120" style="border-radius:50%">
   <h1>¡Hola, soy Goatja! 👋</h1>
   <h3>Desarrollador Fullstack | Apasionado por la tecnología 🚀</h3>
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=440&lines=Bienvenido+a+mi+repositorio+personal!" alt="Typing SVG" />
-</div>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&width=435&lines=Bienvenido+a+mi+perfil.;+Soy+desarrollador+de+software." alt="Typing SVG" /></a>
 
 ---
 
