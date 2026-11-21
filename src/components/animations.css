@@ -1,34 +1,61 @@
-
-/* html{
-    scroll-behavior: smooth;
-} */
-
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes slideInRight {
-    from {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+@keyframes orb-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(0, -14px, 0) rotate(360deg);
+  }
 }
 
-.slide-in-left {
-    animation: slideInLeft 1s ease-out forwards;
+@keyframes progress-scale {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
-.slide-in-right {
-    animation: slideInRight 1s ease-out forwards;
+.reveal {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: progress-scale linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+
+  .hero-orb {
+    animation: orb-drift 12s linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .scroll-progress,
+  .hero-orb {
+    animation: none !important;
+  }
 }

@@ -1,27 +1,67 @@
+import jrImage from '../assets/jr.webp'
+import { site } from '../data/content'
 
-import jrImage from '../assets/jr.png';
-import './animations.css';
+const facts = [
+  { term: 'Base', value: `Santa Ana, El Salvador · ${site.timezone}` },
+  { term: 'Enfoque', value: 'Web, datos, automatización y producto' },
+  { term: 'Stack principal', value: 'Laravel, PHP, JavaScript, Python, Linux' },
+  { term: 'Disponibilidad', value: '[dato por confirmar]' },
+]
 
 const About = () => {
-    return (
-        <section id="about" className="py-20 bg-white dark:bg-gray-900">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="slide-in-left">
-                        <img src={jrImage} alt="JR" className="rounded-full w-64 h-64 sm:w-80 sm:h-80 mx-auto object-cover shadow-lg" />
-                    </div>
-                    <div className="slide-in-right">
-                        <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Sobre mí</h2>
-                        <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Hola, soy un desarrollador de software apasionado por la tecnología y el aprendizaje continuo.
-                            Tengo experiencia en el desarrollo de aplicaciones web utilizando tecnologías como React, Node.js y más.
-                            Me encanta enfrentar nuevos desafíos y crear soluciones innovadoras.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
+  return (
+    <section id="sobre-mi" className="section about" aria-labelledby="sobre-mi-titulo">
+      <div className="container about-grid">
+        <p className="eyebrow about-eyebrow reveal">
+          <span aria-hidden="true">01 / </span>SOBRE MÍ
+        </p>
 
-export default About;
+        <h2 id="sobre-mi-titulo" className="about-title reveal">
+          Cómo trabajo y qué he construido
+        </h2>
+
+        <figure className="about-media reveal">
+          <img src={jrImage} alt="Retrato de Jorge Galdámez" width="640" height="800" />
+          <figcaption>[foto por confirmar]</figcaption>
+        </figure>
+
+        <div className="about-body reveal">
+          <p>
+            Empecé donde terminan los tutoriales: construyendo proyectos propios y
+            poniéndolos a funcionar para alguien más. Entre Laravel, PHP y
+            JavaScript aposté por productos que pudieran usarse el mismo día, no
+            por demos que se quedan en un repositorio.
+          </p>
+          <p>
+            Con el tiempo sumé Python y pandas para convertir datos en decisiones,
+            Bash y Linux para quitar trabajo repetitivo, y Docker para que lo que
+            funciona en mi máquina funcione también en un servidor. Cada herramienta
+            entró porque resolvía un problema concreto, no porque estuviera de moda.
+          </p>
+          <p>
+            Hoy trabajo desde Santa Ana con mirada de negocio: entiendo el proceso
+            antes de automatizarlo, reviso el resultado antes de ampliarlo y
+            construyo soluciones que una persona real puede usar. Me interesa
+            especialmente la tecnología que ayuda a emprendimientos salvadoreños a
+            operar mejor, vender más o perder menos tiempo.
+          </p>
+
+          <dl className="fact-list">
+            {facts.map((fact) => (
+              <div key={fact.term}>
+                <dt>{fact.term}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <a className="text-link" href="#proyectos">
+            Ver proyectos <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default About

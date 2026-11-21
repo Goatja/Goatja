@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Mockup abstracto de panel de automatización">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05070B"/><stop offset="1" stop-color="#111A27"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  <rect x="48" y="48" width="704" height="404" rx="20" fill="#0B1018" stroke="#1E293B"/>
+  <rect x="48" y="48" width="704" height="52" rx="20" fill="#162234"/>
+  <circle cx="76" cy="74" r="6" fill="#F87171"/><circle cx="96" cy="74" r="6" fill="#FBBF24"/><circle cx="116" cy="74" r="6" fill="#34D399"/>
+  <rect x="152" y="68" width="180" height="10" rx="5" fill="#475569"/>
+  <g font-family="monospace" font-size="13" fill="#22D3EE" opacity=".9">
+    <text x="80" y="150">$ ejecutar tarea --programar</text>
+    <text x="80" y="182" fill="#A9B6C9">✓ datos cargados</text>
+    <text x="80" y="214" fill="#A9B6C9">✓ reporte generado</text>
+    <text x="80" y="246" fill="#4F8DFF">→ sincronizando…</text>
+  </g>
+  <g>
+    <rect x="80" y="286" width="640" height="126" rx="12" fill="#111A27" stroke="#1E293B"/>
+    <rect x="104" y="312" width="12" height="12" rx="6" fill="#22D3EE"/>
+    <rect x="130" y="313" width="180" height="10" rx="5" fill="#A9B6C9"/>
+    <rect x="104" y="348" width="12" height="12" rx="6" fill="#34D399"/>
+    <rect x="130" y="349" width="240" height="10" rx="5" fill="#A9B6C9"/>
+    <rect x="104" y="384" width="12" height="12" rx="6" fill="#64748B"/>
+    <rect x="130" y="385" width="140" height="10" rx="5" fill="#64748B"/>
+  </g>
+</svg>

@@ -1,33 +1,221 @@
+import { useState } from 'react'
+import SectionHeading from './SectionHeading'
+import { channels, projectTypes, site } from '../data/content'
 
+function syncValidity(event) {
+  const field = event.target
+  const isControl =
+    typeof HTMLInputElement !== 'undefined' &&
+    (field instanceof HTMLInputElement ||
+      field instanceof HTMLTextAreaElement ||
+      field instanceof HTMLSelectElement)
+  if (!isControl) return
+
+  const radios = field.form?.querySelectorAll(
+    `input[type="radio"][name="${field.name}"]`,
+  )
+  const targets = radios?.length ? [...radios] : [field]
+  const invalid = targets.some((target) => !target.checkValidity())
+
+  targets.forEach((target) => target.setAttribute('aria-invalid', String(invalid)))
+}
 
 const Contact = () => {
-    return (
-        <section id="contact" className="bg-white dark:bg-gray-900">
-            <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contáctame</h2>
-                <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-                    ¿Tienes un proyecto en mente o quieres colaborar? ¡Hablemos!
-                </p>
-                <form action="#" className="space-y-8">
-                    <div>
-                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu Nombre</label>
-                        <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="John Doe" required />
-                    </div>
-                    <div>
-                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tu Correo</label>
-                        <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="nombre@ejemplo.com" required />
-                    </div>
-                    <div className="sm:col-span-2">
-                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Tu Mensaje</label>
-                        <textarea id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Deja tu mensaje..."></textarea>
-                    </div>
-                    <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-blue-700 sm:w-fit hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Enviar Mensaje
-                    </button>
-                </form>
-            </div>
-        </section>
-    );
-};
+  const [status, setStatus] = useState({ type: 'idle', message: '' })
+  const [isSending, setIsSending] = useState(false)
 
-export default Contact;
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setIsSending(true)
+    setStatus({ type: 'sending', message: 'Enviando mensaje…' })
+
+    try {
+      const response = await fetch('/api/contacto', {
+        method: 'POST',
+        body: new FormData(event.currentTarget),
+        headers: { Accept: 'application/json' },
+      })
+
+      if (!response.ok) throw new Error('Respuesta no válida del servidor')
+
+      event.currentTarget.reset()
+      setStatus({
+        type: 'success',
+        message: `Mensaje enviado. Te respondo en ${site.responseTime}.`,
+      })
+    } catch {
+      setStatus({
+        type: 'error',
+        message:
+          'No se pudo enviar el mensaje. Intenta de nuevo o escríbeme por WhatsApp.',
+      })
+    } finally {
+      setIsSending(false)
+    }
+  }
+
+  return (
+    <section id="contacto" className="section contact" aria-labelledby="contacto-titulo">
+      <div className="container contact-grid">
+        <div className="contact-aside reveal">
+          <p className="eyebrow">
+            <span aria-hidden="true">07 / </span>CONTACTO
+          </p>
+          <h2 id="contacto-titulo">Hablemos de tu proyecto</h2>
+          <p className="section-intro">
+            Cuéntame qué necesitas resolver. Si hay una reunión, un proceso o un
+            dato de por medio, lo revisamos antes de hablar de stack.
+          </p>
+
+          <ul className="channel-list" aria-label="Canales de contacto">
+            {channels.map((channel) => (
+              <li key={channel.label}>
+                <span className="channel-label">{channel.label}</span>
+                {channel.href ? (
+                  <a href={channel.href} target="_blank" rel="noopener noreferrer">
+                    {channel.value}
+                    <span className="sr-only"> (se abre en una pestaña nueva)</span>
+                  </a>
+                ) : (
+                  <span className="channel-value">{channel.value}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <p className="contact-microcopy">
+            También puedes escribirme desde Santa Ana, El Salvador · {site.timezone}.
+          </p>
+
+          <aside className="availability-card">
+            <span className="availability-dot" aria-hidden="true" />
+            <div>
+              <p className="availability-title">Disponibilidad</p>
+              <p>Respuesta habitual: {site.responseTime}.</p>
+            </div>
+          </aside>
+        </div>
+
+        <form
+          className="contact-form reveal"
+          name="contacto"
+          method="post"
+          action="/api/contacto"
+          data-netlify="true"
+          netlify-honeypot="website"
+          onSubmit={handleSubmit}
+          onInvalid={syncValidity}
+        >
+          <input type="hidden" name="form-name" value="contacto" />
+
+          <div className="honeypot" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
+
+          <div className="form-row">
+            <div className="field">
+              <label htmlFor="nombre">Nombre *</label>
+              <p className="field-help" id="nombre-help">
+                Así te respondo.
+              </p>
+              <input
+                id="nombre"
+                name="nombre"
+                type="text"
+                autoComplete="name"
+                aria-describedby="nombre-help"
+                aria-invalid="false"
+                onBlur={syncValidity}
+                onChange={syncValidity}
+                required
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="email">Correo electrónico *</label>
+              <p className="field-help" id="email-help">
+                Solo para responderte.
+              </p>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                aria-describedby="email-help"
+                aria-invalid="false"
+                onBlur={syncValidity}
+                onChange={syncValidity}
+                required
+              />
+            </div>
+          </div>
+
+          <fieldset className="field field--radios">
+            <legend>Tipo de proyecto *</legend>
+            <div className="radio-grid">
+              {projectTypes.map((type, index) => (
+                <label key={type} htmlFor={`tipo-${index}`}>
+                  <input
+                    id={`tipo-${index}`}
+                    name="tipo"
+                    type="radio"
+                    value={type}
+                    aria-invalid="false"
+                    onBlur={syncValidity}
+                    onChange={syncValidity}
+                    required
+                  />
+                  <span>{type}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div className="field">
+            <label htmlFor="mensaje">Mensaje *</label>
+            <p className="field-help" id="mensaje-help">
+              Cuéntame el problema, no solo la solución que imaginas.
+            </p>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              aria-describedby="mensaje-help"
+              aria-invalid="false"
+              onBlur={syncValidity}
+              onChange={syncValidity}
+              required
+            />
+          </div>
+
+          <p className="privacy-note">
+            Usaré tus datos solo para responder este mensaje. Consulta la{' '}
+            <a href="/privacidad">política de privacidad</a>.
+          </p>
+
+          <div className="form-actions">
+            <button className="button button--primary" type="submit" disabled={isSending}>
+              {isSending ? 'Enviando…' : 'Enviar mensaje'}
+            </button>
+            <span className="alternate-contact">
+              ¿Prefieres WhatsApp? Abrir chat con mensaje preparado → [número por confirmar]
+            </span>
+          </div>
+
+          {status.type !== 'idle' ? (
+            <p
+              className={`form-status form-status--${status.type}`}
+              role={status.type === 'error' ? 'alert' : 'status'}
+              aria-live={status.type === 'error' ? 'assertive' : 'polite'}
+            >
+              {status.message}
+            </p>
+          ) : null}
+        </form>
+      </div>
+    </section>
+  )
+}
+
+export default Contact

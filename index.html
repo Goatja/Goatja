@@ -1,17 +1,96 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var mode = localStorage.getItem('goatja-tema')
+        if (mode === 'claro' || mode === 'oscuro') {
+          document.documentElement.dataset.tema = mode
+          document.querySelector('meta[name="color-scheme"]').setAttribute('content', mode)
+        }
+      } catch (error) {}
+    </script>
+    <title>
+      Jorge Galdámez (Goatja) | Full Stack Developer &amp; Consultor Tecnológico en El Salvador
+    </title>
+    <meta
+      name="description"
+      content="Construyo aplicaciones web con Laravel y JavaScript, automatizo procesos con Python y Bash y creo productos digitales para negocios en Santa Ana, El Salvador."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://goatja.example/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#05070B" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F9FC" media="(prefers-color-scheme: light)" />
 
-    <title>Jorge Galdamez</title>
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Jorge Galdámez (Goatja) — Full Stack Developer en El Salvador" />
+    <meta
+      property="og:description"
+      content="Web, datos, automatización y productos digitales con impacto real."
+    />
+    <meta property="og:url" content="https://goatja.example/" />
+    <meta property="og:image" content="https://goatja.example/og-portfolio.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_SV" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://goatja.example/#webpage",
+            "url": "https://goatja.example/",
+            "name": "Jorge Galdámez (Goatja)",
+            "mainEntity": { "@id": "https://goatja.example/#person" },
+            "inLanguage": "es-SV"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://goatja.example/#person",
+            "name": "Jorge Galdámez",
+            "alternateName": "Goatja",
+            "jobTitle": "Full Stack Developer",
+            "description": "Desarrollador full stack, consultor tecnológico, creador de contenido digital y emprendedor en Santa Ana, El Salvador.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Santa Ana",
+              "addressCountry": "SV"
+            },
+            "knowsAbout": [
+              "Laravel",
+              "PHP",
+              "JavaScript",
+              "React",
+              "Python",
+              "Pandas",
+              "Linux",
+              "Bash",
+              "Docker",
+              "Automatización",
+              "Dashboards"
+            ],
+            "sameAs": ["https://github.com/Goatja"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://goatja.example/#website",
+            "url": "https://goatja.example/",
+            "name": "Jorge Galdámez · Goatja",
+            "inLanguage": "es-SV"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
   </body>
 </html>
