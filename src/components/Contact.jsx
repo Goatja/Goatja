@@ -2,6 +2,35 @@ import { useState } from 'react'
 import SectionHeading from './SectionHeading'
 import { channels, projectTypes, site } from '../data/content'
 
+function isInvalid(control, eventType) {
+  try {
+    if (control.matches(':user-invalid')) return true
+  } catch {
+    // Fallback para navegadores sin :user-invalid.
+  }
+  return (
+    !control.checkValidity() &&
+    (eventType === 'invalid' || control.dataset.touched === 'true')
+  )
+}
+
+function setErrorLink(control, invalid) {
+  const errorId = control.dataset.error
+  if (!errorId) return
+
+  if (control.dataset.describedbyBase === undefined) {
+    control.dataset.describedbyBase = control.getAttribute('aria-describedby') || ''
+  }
+
+  const base = control.dataset.describedbyBase
+    .split(/\s+/)
+    .filter((id) => id && id !== errorId)
+  const ids = invalid ? [...base, errorId] : base
+
+  if (ids.length) control.setAttribute('aria-describedby', ids.join(' '))
+  else control.removeAttribute('aria-describedby')
+}
+
 function syncValidity(event) {
   const field = event.target
   const isControl =
@@ -11,13 +40,18 @@ function syncValidity(event) {
       field instanceof HTMLSelectElement)
   if (!isControl) return
 
+  if (event.type === 'blur') field.dataset.touched = 'true'
+
   const radios = field.form?.querySelectorAll(
     `input[type="radio"][name="${field.name}"]`,
   )
   const targets = radios?.length ? [...radios] : [field]
-  const invalid = targets.some((target) => !target.checkValidity())
+  const invalid = targets.some((target) => isInvalid(target, event.type))
 
-  targets.forEach((target) => target.setAttribute('aria-invalid', String(invalid)))
+  targets.forEach((target) => {
+    target.setAttribute('aria-invalid', String(invalid))
+    setErrorLink(target, invalid)
+  })
 }
 
 const Contact = () => {
@@ -126,10 +160,14 @@ const Contact = () => {
                 autoComplete="name"
                 aria-describedby="nombre-help"
                 aria-invalid="false"
+                data-error="nombre-error"
                 onBlur={syncValidity}
                 onChange={syncValidity}
                 required
               />
+              <p className="field-error" id="nombre-error">
+                Escribe tu nombre.
+              </p>
             </div>
 
             <div className="field">
@@ -144,10 +182,14 @@ const Contact = () => {
                 autoComplete="email"
                 aria-describedby="email-help"
                 aria-invalid="false"
+                data-error="email-error"
                 onBlur={syncValidity}
                 onChange={syncValidity}
                 required
               />
+              <p className="field-error" id="email-error">
+                Escribe un correo electrónico válido.
+              </p>
             </div>
           </div>
 
@@ -162,6 +204,7 @@ const Contact = () => {
                     type="radio"
                     value={type}
                     aria-invalid="false"
+                    data-error="tipo-error"
                     onBlur={syncValidity}
                     onChange={syncValidity}
                     required
@@ -170,6 +213,9 @@ const Contact = () => {
                 </label>
               ))}
             </div>
+            <p className="field-error" id="tipo-error">
+              Selecciona un tipo de proyecto.
+            </p>
           </fieldset>
 
           <div className="field">
@@ -183,10 +229,14 @@ const Contact = () => {
               rows="5"
               aria-describedby="mensaje-help"
               aria-invalid="false"
+              data-error="mensaje-error"
               onBlur={syncValidity}
               onChange={syncValidity}
               required
             />
+            <p className="field-error" id="mensaje-error">
+              Escribe tu mensaje.
+            </p>
           </div>
 
           <p className="privacy-note">

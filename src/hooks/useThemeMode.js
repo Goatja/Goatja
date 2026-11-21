@@ -28,7 +28,8 @@ export function setThemeMode(mode) {
   const next = mode === 'claro' || mode === 'oscuro' ? mode : 'sistema'
 
   try {
-    window.localStorage.setItem(STORAGE_KEY, next)
+    if (next === 'sistema') window.localStorage.removeItem(STORAGE_KEY)
+    else window.localStorage.setItem(STORAGE_KEY, next)
   } catch {
     // El cambio sigue aplicando para esta sesión aunque no se pueda persistir.
   }
@@ -36,7 +37,7 @@ export function setThemeMode(mode) {
   document.documentElement.dataset.tema = next
   document.querySelector('meta[name="color-scheme"]')?.setAttribute(
     'content',
-    next === 'sistema' ? 'light dark' : next,
+    next === 'sistema' ? 'light dark' : next === 'claro' ? 'light' : 'dark',
   )
   notify()
 }
@@ -45,7 +46,14 @@ export function useThemeMode() {
   return useSyncExternalStore(
     (listener) => {
       listeners.add(listener)
-      return () => listeners.delete(listener)
+      const onStorage = (event) => {
+        if (event.key === STORAGE_KEY) listener()
+      }
+      window.addEventListener('storage', onStorage)
+      return () => {
+        listeners.delete(listener)
+        window.removeEventListener('storage', onStorage)
+      }
     },
     readMode,
     () => 'sistema',

@@ -9,7 +9,9 @@
         var mode = localStorage.getItem('goatja-tema')
         if (mode === 'claro' || mode === 'oscuro') {
           document.documentElement.dataset.tema = mode
-          document.querySelector('meta[name="color-scheme"]').setAttribute('content', mode)
+          document
+            .querySelector('meta[name="color-scheme"]')
+            .setAttribute('content', mode === 'claro' ? 'light' : 'dark')
         }
       } catch (error) {}
     </script>
