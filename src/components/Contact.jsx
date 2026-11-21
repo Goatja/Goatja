@@ -71,13 +71,26 @@ const Contact = () => {
     setStatus({ type: 'sending', message: 'Enviando mensaje…' })
 
     try {
+      const datos = new FormData(event.currentTarget)
+      const cuerpo = new URLSearchParams()
+      datos.forEach((valor, clave) => cuerpo.append(clave, valor))
+
       const response = await fetch('/api/contacto', {
         method: 'POST',
-        body: new FormData(event.currentTarget),
-        headers: { Accept: 'application/json' },
+        body: cuerpo,
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        },
       })
 
-      if (!response.ok) throw new Error('Respuesta no válida del servidor')
+      const resultado = await response.json().catch(() => null)
+
+      if (!response.ok || !resultado?.ok) {
+        throw new Error(
+          resultado?.message || 'No se pudo enviar el mensaje. Intenta de nuevo.',
+        )
+      }
 
       event.currentTarget.reset()
       setStatus({
@@ -86,10 +99,11 @@ const Contact = () => {
           ? 'Mensaje enviado. Gracias por escribirme.'
           : `Mensaje enviado. Te respondo en ${site.responseTime}.`,
       })
-    } catch {
+    } catch (error) {
       setStatus({
         type: 'error',
-        message: 'No se pudo enviar el mensaje. Intenta de nuevo.',
+        message:
+          error.message || 'No se pudo enviar el mensaje. Intenta de nuevo.',
       })
     } finally {
       setIsSending(false)
