@@ -1,4 +1,4 @@
-import jrImage from '../assets/jr.webp'
+import jrImage from '../assets/imgMiperfil.jpg'
 import { site } from '../data/content'
 import { textoVisible } from '../utils/pendiente'
 
