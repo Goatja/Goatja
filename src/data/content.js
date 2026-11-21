@@ -41,7 +41,7 @@ export const skillGroups = [
     title: 'Data',
     value: 'De hojas de cálculo a tableros que se actualizan solos.',
     tech: ['Python', 'Pandas', 'Excel'],
-    evidence: '[dato por confirmar: proyectos o años]',
+    evidence: 'Medio año de formación como analista de datos con Python e IA.',
   },
   {
     title: 'Infraestructura',
