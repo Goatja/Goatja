@@ -1,6 +1,7 @@
 import GitHub from './GitHub'
 import SectionHeading from './SectionHeading'
 import { projects } from '../data/content'
+import { esPendiente, textoVisible } from '../utils/pendiente'
 
 const Projects = () => {
   return (
@@ -15,50 +16,56 @@ const Projects = () => {
         />
 
         <div className="project-grid">
-          {projects.map((project, index) => (
-            <article
-              key={project.slug}
-              className={`project-card reveal${
-                project.featured ? ' project-card--featured' : ''
-              }`}
-            >
-              <div className="project-image">
-                <img
-                  src={project.image}
-                  alt={project.imageAlt}
-                  width={project.featured ? 1200 : 800}
-                  height={project.featured ? 514 : 500}
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-              </div>
-              <div className="project-content">
-                <p className="project-category">{project.category}</p>
-                <h3>{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <ul className="chip-list" aria-label={`Stack de ${project.title}`}>
-                  {project.tech.map((tech) => (
-                    <li key={tech} className="chip chip--tech">
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <p className="project-result">
-                  <span>Resultado</span> {project.result}
-                </p>
-                <footer>
-                  <a className="card-link" href="#contacto">
-                    Ver caso <span aria-hidden="true">→</span>
-                    <span className="sr-only"> de {project.title} [caso por confirmar]</span>
-                  </a>
-                </footer>
-              </div>
-            </article>
-          ))}
+          {projects.map((project, index) => {
+            const descripcion = textoVisible(project.description)
+            const resultado = textoVisible(project.result)
+
+            return (
+              <article
+                key={project.slug}
+                className={`project-card reveal${
+                  project.featured ? ' project-card--featured' : ''
+                }`}
+              >
+                <div className="project-image">
+                  <img
+                    src={project.image}
+                    alt={textoVisible(project.imageAlt) || `Mockup de ${project.title}`}
+                    width={project.featured ? 1200 : 800}
+                    height={project.featured ? 514 : 500}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+                <div className="project-content">
+                  <p className="project-category">{project.category}</p>
+                  <h3>{project.title}</h3>
+                  {descripcion && (
+                    <p className="project-description">{descripcion}</p>
+                  )}
+                  <ul className="chip-list" aria-label={`Stack de ${project.title}`}>
+                    {project.tech.map((tech) => {
+                      const tecnologia = textoVisible(tech)
+                      return tecnologia ? (
+                        <li key={tech} className="chip chip--tech">
+                          {tecnologia}
+                        </li>
+                      ) : null
+                    })}
+                  </ul>
+                  {resultado && !esPendiente(project.result) && (
+                    <p className="project-result">
+                      <span>Resultado</span> {resultado}
+                    </p>
+                  )}
+                </div>
+              </article>
+            )
+          })}
         </div>
 
         <p className="section-note">
-          Las imágenes son mockups UI abstractos. Capturas reales: [dato por confirmar].
+          Las imágenes son mockups UI abstractos.
         </p>
 
         <div className="projects-footer">

@@ -1,11 +1,15 @@
 import { capabilities, site } from '../data/content'
+import { esPendiente, textoVisible } from '../utils/pendiente'
 
 const Hero = () => {
+  const eyebrow = textoVisible(site.eyebrow)
+  const mostrarCoordenadas = !esPendiente(site.coordinatesNote)
+
   return (
     <section id="inicio" className="hero">
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="eyebrow">{site.eyebrow}</p>
+          {eyebrow && <p className="eyebrow">{eyebrow}</p>}
 
           <h1 tabIndex={-1}>
             <span>{site.name}</span>
@@ -27,9 +31,11 @@ const Hero = () => {
             </a>
           </div>
 
-          <p className="hero-microcopy">
-            Respuesta habitual en {site.responseTime}.
-          </p>
+          {!esPendiente(site.responseTime) && (
+            <p className="hero-microcopy">
+              Respuesta habitual en {site.responseTime}.
+            </p>
+          )}
 
           <ul className="capability-strip" aria-label="Capacidades">
             {capabilities.map((capability) => (
@@ -43,8 +49,12 @@ const Hero = () => {
           <div className="hero-orb">
             <span>JG</span>
           </div>
-          <p className="hero-coordinates">13.68° N · 89.86° W</p>
-          <p className="hero-coordinates-note">[coordenadas por confirmar]</p>
+          {mostrarCoordenadas && (
+            <>
+              <p className="hero-coordinates">{site.coordinates}</p>
+              <p className="hero-coordinates-note">{site.coordinatesNote}</p>
+            </>
+          )}
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import jrImage from '../assets/jr.webp'
 import { site } from '../data/content'
+import { textoVisible } from '../utils/pendiente'
 
 const facts = [
   { term: 'Base', value: `Santa Ana, El Salvador · ${site.timezone}` },
@@ -8,7 +9,13 @@ const facts = [
   { term: 'Disponibilidad', value: '[dato por confirmar]' },
 ]
 
+const visibleFacts = facts
+  .map((fact) => ({ ...fact, value: textoVisible(fact.value) }))
+  .filter((fact) => fact.value)
+
 const About = () => {
+  const photoCaption = textoVisible(site.photoCaption)
+
   return (
     <section id="sobre-mi" className="section about" aria-labelledby="sobre-mi-titulo">
       <div className="container about-grid">
@@ -22,7 +29,7 @@ const About = () => {
 
         <figure className="about-media reveal">
           <img src={jrImage} alt="Retrato de Jorge Galdámez" width="640" height="800" />
-          <figcaption>[foto por confirmar]</figcaption>
+          {photoCaption && <figcaption>{photoCaption}</figcaption>}
         </figure>
 
         <div className="about-body reveal">
@@ -47,7 +54,7 @@ const About = () => {
           </p>
 
           <dl className="fact-list">
-            {facts.map((fact) => (
+            {visibleFacts.map((fact) => (
               <div key={fact.term}>
                 <dt>{fact.term}</dt>
                 <dd>{fact.value}</dd>

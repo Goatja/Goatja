@@ -1,6 +1,7 @@
 import { FaChartLine, FaCode, FaServer, FaTerminal } from 'react-icons/fa'
 import SectionHeading from './SectionHeading'
 import { skillGroups } from '../data/content'
+import { esPendiente, textoVisible } from '../utils/pendiente'
 
 const icons = [FaCode, FaServer, FaChartLine, FaTerminal]
 
@@ -27,13 +28,18 @@ const Skills = () => {
                 <h3>{group.title}</h3>
                 <p className="skill-value">{group.value}</p>
                 <ul className="chip-list" aria-label={`Tecnologías de ${group.title}`}>
-                  {group.tech.map((tech) => (
-                    <li key={tech} className="chip chip--tech">
-                      {tech}
-                    </li>
-                  ))}
+                  {group.tech.map((tech) => {
+                    const tecnologia = textoVisible(tech)
+                    return tecnologia ? (
+                      <li key={tech} className="chip chip--tech">
+                        {tecnologia}
+                      </li>
+                    ) : null
+                  })}
                 </ul>
-                <p className="skill-evidence">{group.evidence}</p>
+                {!esPendiente(group.evidence) && (
+                  <p className="skill-evidence">{group.evidence}</p>
+                )}
               </article>
             )
           })}

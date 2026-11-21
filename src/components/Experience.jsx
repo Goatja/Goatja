@@ -1,5 +1,6 @@
 import SectionHeading from './SectionHeading'
 import { experience } from '../data/content'
+import { esPendiente, textoVisible } from '../utils/pendiente'
 
 const Experience = () => {
   return (
@@ -20,18 +21,14 @@ const Experience = () => {
               className={`timeline-item reveal${item.current ? ' timeline-item--current' : ''}`}
               aria-current={item.current ? 'step' : undefined}
             >
-              <p className="timeline-period">{item.period}</p>
+              {!esPendiente(item.period) && (
+                <p className="timeline-period">{item.period}</p>
+              )}
               <h3>{item.title}</h3>
-              <p>{item.detail}</p>
+              <p>{textoVisible(item.detail)}</p>
             </li>
           ))}
         </ol>
-
-        <p className="experience-link">
-          <span aria-disabled="true" className="link-placeholder">
-            Ver perfil en LinkedIn <span aria-hidden="true">→</span> [URL por confirmar]
-          </span>
-        </p>
       </div>
     </section>
   )

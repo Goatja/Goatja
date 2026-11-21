@@ -14,6 +14,7 @@
       h2 { margin-top: 40px; font-size: 1.25rem; }
       p, li { color: var(--muted); }
       section { border-top: 1px solid var(--line); margin-top: 32px; padding-top: 8px; }
+      [hidden] { display: none !important; }
       a { color: var(--accent); }
     </style>
   </head>
@@ -31,11 +32,13 @@
           <li>Tipo de proyecto y contenido de tu mensaje.</li>
         </ul>
       </section>
-      <section>
+      <!-- Pendiente: plazo de conservación. Quitar hidden cuando esté confirmado. -->
+      <section hidden>
         <h2>Conservación</h2>
         <p>Plazo de conservación: [dato por confirmar].</p>
       </section>
-      <section>
+      <!-- Pendiente: correo de privacidad. Quitar hidden cuando esté confirmado. -->
+      <section hidden>
         <h2>Contacto</h2>
         <p>Correo de privacidad: [correo por confirmar].</p>
       </section>

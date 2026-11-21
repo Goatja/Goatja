@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import SectionHeading from './SectionHeading'
 import { channels, projectTypes, site } from '../data/content'
+import { esPendiente, textoVisible } from '../utils/pendiente'
+
+const visibleChannels = channels.filter((channel) => !esPendiente(channel.value))
+const whatsapp = channels.find((channel) => channel.label === 'WhatsApp')
 
 function isInvalid(control, eventType) {
   try {
@@ -57,6 +61,9 @@ function syncValidity(event) {
 const Contact = () => {
   const [status, setStatus] = useState({ type: 'idle', message: '' })
   const [isSending, setIsSending] = useState(false)
+  const ubicacion = textoVisible(
+    `También puedes escribirme desde Santa Ana, El Salvador · ${site.timezone}.`,
+  )
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -75,13 +82,14 @@ const Contact = () => {
       event.currentTarget.reset()
       setStatus({
         type: 'success',
-        message: `Mensaje enviado. Te respondo en ${site.responseTime}.`,
+        message: esPendiente(site.responseTime)
+          ? 'Mensaje enviado. Gracias por escribirme.'
+          : `Mensaje enviado. Te respondo en ${site.responseTime}.`,
       })
     } catch {
       setStatus({
         type: 'error',
-        message:
-          'No se pudo enviar el mensaje. Intenta de nuevo o escríbeme por WhatsApp.',
+        message: 'No se pudo enviar el mensaje. Intenta de nuevo.',
       })
     } finally {
       setIsSending(false)
@@ -102,7 +110,7 @@ const Contact = () => {
           </p>
 
           <ul className="channel-list" aria-label="Canales de contacto">
-            {channels.map((channel) => (
+            {visibleChannels.map((channel) => (
               <li key={channel.label}>
                 <span className="channel-label">{channel.label}</span>
                 {channel.href ? (
@@ -117,17 +125,17 @@ const Contact = () => {
             ))}
           </ul>
 
-          <p className="contact-microcopy">
-            También puedes escribirme desde Santa Ana, El Salvador · {site.timezone}.
-          </p>
+          {ubicacion && <p className="contact-microcopy">{ubicacion}</p>}
 
-          <aside className="availability-card">
-            <span className="availability-dot" aria-hidden="true" />
-            <div>
-              <p className="availability-title">Disponibilidad</p>
-              <p>Respuesta habitual: {site.responseTime}.</p>
-            </div>
-          </aside>
+          {!esPendiente(site.responseTime) && (
+            <aside className="availability-card">
+              <span className="availability-dot" aria-hidden="true" />
+              <div>
+                <p className="availability-title">Disponibilidad</p>
+                <p>Respuesta habitual: {site.responseTime}.</p>
+              </div>
+            </aside>
+          )}
         </div>
 
         <form
@@ -248,9 +256,11 @@ const Contact = () => {
             <button className="button button--primary" type="submit" disabled={isSending}>
               {isSending ? 'Enviando…' : 'Enviar mensaje'}
             </button>
-            <span className="alternate-contact">
-              ¿Prefieres WhatsApp? Abrir chat con mensaje preparado → [número por confirmar]
-            </span>
+            {whatsapp && !esPendiente(whatsapp.value) && (
+              <span className="alternate-contact">
+                ¿Prefieres WhatsApp? Abrir chat con mensaje preparado →
+              </span>
+            )}
           </div>
 
           {status.type !== 'idle' ? (

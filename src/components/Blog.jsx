@@ -1,5 +1,6 @@
 import SectionHeading from './SectionHeading'
 import { ideas } from '../data/content'
+import { esPendiente } from '../utils/pendiente'
 
 const Blog = () => {
   return (
@@ -17,25 +18,18 @@ const Blog = () => {
           {ideas.map((idea) => (
             <article key={idea.title} className="idea-card reveal">
               <p className="idea-category">{idea.category}</p>
-              <p className="idea-meta">
-                <span>{idea.date}</span>
-                <span aria-hidden="true">·</span>
-                <span>{idea.readingTime}</span>
-              </p>
+              {!esPendiente(idea.date) && !esPendiente(idea.readingTime) && (
+                <p className="idea-meta">
+                  <span>{idea.date}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{idea.readingTime}</span>
+                </p>
+              )}
               <h3>{idea.title}</h3>
               <p className="idea-excerpt">{idea.excerpt}</p>
-              <a className="card-link" href="#ideas">
-                Leer <span aria-hidden="true">→</span>
-                <span className="sr-only">: {idea.title} [artículo por publicar]</span>
-              </a>
             </article>
           ))}
         </div>
-
-        <a className="text-link ideas-cta" href="#ideas">
-          Ver todas las ideas <span aria-hidden="true">→</span>
-          <span className="sr-only"> [índice por publicar]</span>
-        </a>
       </div>
     </section>
   )

@@ -1,5 +1,8 @@
 import { setThemeMode, useThemeMode } from '../hooks/useThemeMode'
 import { channels } from '../data/content'
+import { esPendiente, textoVisible } from '../utils/pendiente'
+
+const visibleChannels = channels.filter((channel) => !esPendiente(channel.value))
 
 const themeOptions = [
   { value: 'sistema', label: 'Sistema' },
@@ -9,6 +12,9 @@ const themeOptions = [
 
 const FooterComponent = () => {
   const mode = useThemeMode()
+  const copyright = textoVisible(
+    '© [año por confirmar] Jorge Galdámez · Goatja. Hecho en Santa Ana, El Salvador.',
+  )
 
   return (
     <footer className="site-footer">
@@ -31,7 +37,6 @@ const FooterComponent = () => {
                 GitHub<span className="sr-only"> (se abre en una pestaña nueva)</span>
               </a>
             </li>
-            <li><span className="link-placeholder">LinkedIn [URL por confirmar]</span></li>
             <li><a href="#inicio">Volver arriba ↑</a></li>
           </ul>
         </nav>
@@ -39,7 +44,7 @@ const FooterComponent = () => {
         <div className="footer-channels">
           <h2>Canales</h2>
           <ul>
-            {channels.map((channel) => (
+            {visibleChannels.map((channel) => (
               <li key={channel.label}>
                 <span>{channel.label}</span>
                 {channel.href ? (
@@ -77,9 +82,7 @@ const FooterComponent = () => {
       </div>
 
       <div className="container footer-bottom">
-        <p>
-          © [año por confirmar] Jorge Galdámez · Goatja. Hecho en Santa Ana, El Salvador.
-        </p>
+        <p>{copyright}</p>
       </div>
     </footer>
   )

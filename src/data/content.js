@@ -9,6 +9,9 @@ export const site = {
   responseTime: '[dato por confirmar]',
   location: 'Santa Ana, El Salvador',
   timezone: '[zona horaria por confirmar]',
+  coordinates: '13.68° N · 89.86° W',
+  coordinatesNote: '[coordenadas por confirmar]',
+  photoCaption: '[foto por confirmar]',
 }
 
 export const capabilities = [
@@ -55,12 +58,11 @@ export const projects = [
     category: 'Producto digital',
     title: 'Chero World',
     description:
-      'Plataforma web propia para [dato por confirmar: público y problema que resuelve]. Construida alrededor de [dato por confirmar: flujo principal] con foco en velocidad y claridad.',
+      'Plataforma web propia construida con Laravel, JavaScript y MySQL, con foco en velocidad y claridad.',
     tech: ['Laravel', 'PHP', 'JavaScript', 'MySQL [confirmar]'],
     result: '[dato por confirmar: métrica o cambio concreto]',
     image: '/projects/chero-world.svg',
-    imageAlt:
-      'Vista de la interfaz de Chero World mostrando [dato por confirmar]',
+    imageAlt: 'Vista de la interfaz de Chero World',
     featured: true,
   },
   {
@@ -84,8 +86,7 @@ export const projects = [
     tech: ['Python', 'Pandas', 'Plotly / Dash [confirmar]'],
     result: '[dato por confirmar: indicador o tiempo de reporte reducido]',
     image: '/projects/dashboards-python.svg',
-    imageAlt:
-      'Dashboard con gráficas de [dato por confirmar] y filtros por periodo',
+    imageAlt: 'Dashboard con gráficas y filtros por periodo',
   },
   {
     slug: 'apps-laravel',
