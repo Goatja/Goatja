@@ -1,70 +1,142 @@
-# Jorge Galdámez · Goatja
+<div align="center">
 
-Portafolio one-page construido con Vite, React, Tailwind-free CSS y design tokens.
+# Jorge Galdámez
 
-**Firma:** Jorge Galdámez · Goatja  
-**Headline:** Full Stack Developer • Data Enthusiast • Digital Entrepreneur  
-**Ubicación:** Santa Ana, El Salvador
+### Full Stack Developer • Consultor Tecnológico • Entusiasta de IA
 
-## Ejecutar
+Construyendo soluciones tecnológicas prácticas mediante desarrollo de software,
+automatización, análisis de datos e inteligencia artificial.
 
-```bash
-npm install
-npm run dev
-```
+</div>
 
-Para probar el formulario localmente, usa `vercel dev` en vez de `npm run dev`
-para que `/api/contacto` exista.
+---
 
-## Verificar
+## Perfil Profesional
 
-```bash
-npm run lint
-npm run build
-npm run preview
-```
+Soy desarrollador full stack con interés en la creación de aplicaciones web, automatización de procesos, análisis de datos e integración de soluciones basadas en inteligencia artificial.
 
-## Estructura
+Disfruto resolver problemas complejos mediante herramientas tecnológicas modernas, aplicando buenas prácticas de desarrollo, arquitectura de software y aprendizaje continuo.
 
-- `src/App.jsx`: orden obligatorio de las 8 secciones.
-- `src/data/content.js`: copy y datos pendientes de confirmar.
-- `src/index.css`: tokens claros/oscuros, layout, componentes y estados accesibles.
-- `src/components/animations.css`: movimiento condicionado a `prefers-reduced-motion`.
-- `src/utils/pendiente.js`: oculta los campos que aún tienen marcadores pendientes.
-- `api/contacto.js`: función serverless que envía el formulario por SMTP.
-- `public/`: favicon, OG image, mockups de proyectos y páginas estáticas.
+Mi objetivo es diseñar soluciones sostenibles que aporten valor real a personas, empresas y comunidades.
 
-## Formulario de contacto
+---
 
-El formulario envía un `POST` a `/api/contacto`. En Vercel, esa ruta se resuelve
-con `api/contacto.js` mediante Nodemailer y SMTP de Gmail.
+## Stack Principal
 
-1. Copia `.env.example` a `.env.local` para desarrollo local, o carga las mismas
-   variables en **Vercel → Project → Settings → Environment Variables**.
-2. Usa una **contraseña de aplicación** de Google, no la contraseña normal.
-   Se genera en https://myaccount.google.com/apppasswords con la verificación
-   en dos pasos activada.
-3. Variables requeridas:
+| Área | Tecnologías |
+|--------|--------|
+| Frontend | HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS |
+| Backend | Python, PHP, Laravel, Node.js, Express |
+| Bases de Datos | MySQL, PostgreSQL, SQLite |
+| Control de Versiones | Git, GitHub |
+| Infraestructura | Linux, Docker, Vercel, Render |
+| APIs | REST APIs, Integraciones de terceros |
+| Inteligencia Artificial | Prompt Engineering, Hugging Face, LLMs, IA Generativa |
+| Análisis de Datos | Pandas, NumPy, Automatización de Reportes |
 
-   - `SMTP_USER`: correo Gmail que envía.
-   - `SMTP_PASS`: contraseña de aplicación.
-   - `CONTACTO_DESTINO`: correo que recibe los mensajes.
-   - `SMTP_FROM`: opcional; por defecto usa `SMTP_USER`.
-   - `SMTP_HOST` y `SMTP_PORT`: opcionales; por defecto `smtp.gmail.com:587`.
+---
 
-4. Redeploya en Vercel después de guardar las variables.
+## Competencias Técnicas
 
-El endpoint valida los campos, ignora el honeypot, responde JSON para el
-enhancement con JavaScript y redirige a `/gracias` cuando el formulario se envía
-sin JavaScript.
+### Desarrollo Web
 
-## Pendiente antes de publicar
+- Aplicaciones Full Stack
+- Arquitectura MVC
+- Diseño de APIs REST
+- Diseño Responsivo
+- Optimización de Rendimiento
+- Integración de Servicios Externos
 
-- Reemplazar `https://goatja.example` por el dominio real en `index.html`.
-- Completar todos los `[dato por confirmar]`.
-- Configurar las variables SMTP en Vercel con el correo real.
-- Sustituir los mockups SVG por capturas reales.
+### Ciencia de Datos
 
-## Stack
+- Limpieza de datos
+- Transformación de información
+- Automatización de análisis
+- Visualización de datos
+- Procesamiento con Python
 
-Vite 7 · React 19 · CSS nativo con tokens · Geist Variable · JetBrains Mono · react-icons.
+### Inteligencia Artificial
+
+- Uso de modelos generativos
+- Integración de asistentes IA
+- Automatización inteligente
+- Creación de agentes
+- Ingeniería de prompts
+
+### DevOps y Automatización
+
+- Linux Server Management
+- Bash Scripting
+- Dockerización de aplicaciones
+- Git Workflows
+- Deploy automatizado
+
+---
+
+## Actualmente Aprendiendo
+
+| Tema | Enfoque |
+|--------|--------|
+| Inteligencia Artificial | Agentes Autónomos |
+| Machine Learning | Aplicaciones prácticas |
+| Arquitectura de Software | Sistemas escalables |
+| Cloud Computing | Despliegues modernos |
+| Data Analytics | Toma de decisiones basada en datos |
+
+---
+
+## Filosofía de Trabajo
+
+> La mejor tecnología no es la más compleja, sino la que resuelve problemas reales de forma simple, eficiente y sostenible.
+
+---
+
+## Especialidades
+
+- Desarrollo Web Full Stack
+- Consultoría Tecnológica
+- Implementación de Soluciones con IA
+- Automatización de Procesos
+- Análisis de Datos
+- Optimización de Flujos de Trabajo
+- Transformación Digital
+
+---
+
+## Actividad y Estadísticas
+
+<p align="center">
+
+<img height="170em" src="https://github-readme-stats.vercel.app/api?username=Goatja&show_icons=true&hide_border=true&theme=transparent" />
+
+<img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Goatja&layout=compact&hide_border=true&theme=transparent"/>
+
+</p>
+
+---
+
+## Tecnologías Destacadas
+
+<p align="center">
+
+<img src="https://skillicons.dev/icons?i=python,php,laravel,react,nextjs,js,ts,nodejs,mysql,postgres,docker,linux,git,github" />
+
+</p>
+
+---
+
+## Contacto
+
+**Portfolio:** https://goatja.vercel.app
+
+**GitHub:** https://github.com/Goatja
+
+**LinkedIn:** www.linkedin.com/in/jorge-arana-28b204335
+
+---
+
+<div align="center">
+
+### Aprendiz constante • Constructor de soluciones • Tecnología con propósito
+
+</div>
